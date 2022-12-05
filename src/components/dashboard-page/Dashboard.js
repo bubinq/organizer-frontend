@@ -12,20 +12,15 @@ export const Dashboard = () => {
   //  Checks if goal is completed  => This logic can be later added to Achievements system
   //  Asks if you want to keep or change goals with same names
 
-  const {
-    goals,
-    dispatch,
-    displayDuration,
-    isLoading,
-    resetSelectedGoal
-  } = useContext(GoalContext);
+  const { goals, dispatch, displayDuration, isLoading, resetSelectedGoal } =
+    useContext(GoalContext);
   const [showPopUp, setShowPopUp] = useState(false);
 
   const lastAddedGoal = goals[goals.length - 1];
   const today = new Date(dayjs().format("MM DD YYYY")).valueOf();
 
   useEffect(() => {
-    resetSelectedGoal()
+    resetSelectedGoal();
     checkLastGoalValidation();
     checkGoalIsExpired();
     // eslint-disable-next-line
@@ -42,7 +37,11 @@ export const Dashboard = () => {
       const deadline = displayDuration(goal._id)[0];
       const endGoal = new Date(dayjs(deadline).format("MM DD YYYY")).valueOf();
       if (endGoal - today < 0 && !goal.isExpired) {
-        const expiredGoal = await axiosInstance.put(`/goals/updateStatus/${goal._id}`);
+        const expiredGoal = await axiosInstance.put(
+          `/goals/updateStatus/${goal._id}`,
+          "",
+          { withCredentials: true }
+        );
         dispatch({
           type: "UPDATECOMPLETE",
           payload: expiredGoal.data,
@@ -69,7 +68,9 @@ export const Dashboard = () => {
   useEffect(() => {
     const getGoals = async () => {
       try {
-        const goals = await axiosInstance.get("/goals/user");
+        const goals = await axiosInstance.get("/goals/user", {
+          withCredentials: true,
+        });
         dispatch({
           type: "READ",
           payload: goals.data,

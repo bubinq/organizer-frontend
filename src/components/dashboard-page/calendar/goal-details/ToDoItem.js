@@ -13,9 +13,13 @@ const ToDoItem = ({ todo, goal }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const completeHandler = async () => {
-    const completedToDo = await axiosInstance.put(`/toDos/complete/${todo._id}`, {
-      goalId: goal._id,
-    });
+    const completedToDo = await axiosInstance.put(
+      `/toDos/complete/${todo._id}`,
+      {
+        goalId: goal._id,
+      },
+      { withCredentials: true }
+    );
 
     dispatch({
       type: "READ",
@@ -56,10 +60,14 @@ const ToDoItem = ({ todo, goal }) => {
       return;
     }
 
-    const updatedGoal = await axiosInstance.put(`/toDos/edit/${todo._id}`, {
-      goalId: goal._id,
-      toDo: newText
-    });
+    const updatedGoal = await axiosInstance.put(
+      `/toDos/edit/${todo._id}`,
+      {
+        goalId: goal._id,
+        toDo: newText,
+      },
+      { withCredentials: true }
+    );
 
     dispatch({
       type: "READ",

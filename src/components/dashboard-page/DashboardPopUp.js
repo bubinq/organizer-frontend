@@ -11,7 +11,9 @@ export const DashboardPopUp = ({ lastAddedGoal, setShowPopUp }) => {
 
   const removeGoalHandler = async () => {
     setUpdatedChanges(true);
-    await axiosInstance.delete(`/goals/delete/${lastAddedGoal._id}`);
+    await axiosInstance.delete(`/goals/delete/${lastAddedGoal._id}`, {
+      withCredentials: true,
+    });
     dispatch({
       type: "DELETE",
       _id: lastAddedGoal._id,
@@ -22,7 +24,9 @@ export const DashboardPopUp = ({ lastAddedGoal, setShowPopUp }) => {
 
   const saveGoalHandler = async () => {
     setUpdatedChanges(true);
-    await axiosInstance.put(`/goals/saveGoal/${lastAddedGoal._id}`);
+    await axiosInstance.put(`/goals/saveGoal/${lastAddedGoal._id}`, "", {
+      withCredentials: true,
+    });
     dispatch({
       type: "UPDATESTATUS",
       payload: lastAddedGoal,

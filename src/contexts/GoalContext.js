@@ -56,7 +56,7 @@ export const GoalProvider = ({ children }) => {
   const [dayInfo, setDayInfo] = useState({});
   const [hasGoals, setHasGoals] = useState(false);
   const [selectedGoal, setSelecetedGoal] = useState({});
-  const [dayProgress, setDayProgress] = useState([])
+  const [dayProgress, setDayProgress] = useState([]);
 
   useEffect(() => {
     setGoalStorage(goals);
@@ -67,11 +67,13 @@ export const GoalProvider = ({ children }) => {
     setSelecetedGoal({});
   };
 
-  const selectGoalHandler = async(goal) => {
-    setSelecetedGoal(goal)
-    const progress = await axiosInstance.get(`/progress/get/${goal._id}`)
-    setDayProgress(progress.data)
-  }
+  const selectGoalHandler = async (goal) => {
+    setSelecetedGoal(goal);
+    const progress = await axiosInstance.get(`/progress/get/${goal._id}`, {
+      withCredentials: true,
+    });
+    setDayProgress(progress.data);
+  };
 
   const displayDuration = (goalId) => {
     const searchedGoal = goals.find((target) => target._id === goalId);
@@ -99,8 +101,8 @@ export const GoalProvider = ({ children }) => {
       "6 Months": dayjs(createdAt).add(6, "M"),
       "1 Year": dayjs(createdAt).add(1, "y"),
     };
-    return goalEndPoints[duration]
-  }
+    return goalEndPoints[duration];
+  };
 
   return (
     <GoalContext.Provider
@@ -120,7 +122,7 @@ export const GoalProvider = ({ children }) => {
         resetSelectedGoal,
         selectGoalHandler,
         dayProgress,
-        displayExpireAt
+        displayExpireAt,
       }}
     >
       {children}

@@ -15,7 +15,8 @@ export const EventPopUp = () => {
   //  Manages Crud Operations
 
   const { popModalHandler, dayTarget } = useContext(CalendarContext);
-  const { dispatch, setHasGoals, hasGoals, dayInfo, displayExpireAt } = useContext(GoalContext);
+  const { dispatch, setHasGoals, hasGoals, dayInfo, displayExpireAt } =
+    useContext(GoalContext);
 
   const [isUpdating, setIsUpdating] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState(labelsArray[0]);
@@ -40,7 +41,7 @@ export const EventPopUp = () => {
               })
           : (isEmpty = true),
       labelColor: selectedLabel.color,
-      expiresAt: displayExpireAt(dayTarget?.$d, data.get("time").trim()).$d
+      expiresAt: displayExpireAt(dayTarget?.$d, data.get("time").trim()).$d,
     };
 
     if (isEmpty) {
@@ -66,16 +67,20 @@ export const EventPopUp = () => {
           duration: goalData.duration,
           labelColor: goalData.labelColor,
           createdAt: dayTarget?.$d,
-          expiresAt: displayExpireAt(dayTarget?.$d, goalData.duration).$d
+          expiresAt: displayExpireAt(dayTarget?.$d, goalData.duration).$d,
         },
         { withCredentials: true }
       );
-      const wholeGoal = await axiosInstance.post("/toDos/create", {
-        goalId: newGoal.data._id,
-        toDos: goalData.toDos.map((todo) =>
-          Object.assign(todo, { goalId: newGoal.data._id })
-        ),
-      });
+      const wholeGoal = await axiosInstance.post(
+        "/toDos/create",
+        {
+          goalId: newGoal.data._id,
+          toDos: goalData.toDos.map((todo) =>
+            Object.assign(todo, { goalId: newGoal.data._id })
+          ),
+        },
+        { withCredentials: true }
+      );
       dispatch({
         type: "CREATE",
         payload: wholeGoal.data,
@@ -90,13 +95,17 @@ export const EventPopUp = () => {
         },
         { withCredentials: true }
       );
-      await axiosInstance.delete(`/toDos/deleteall/${dayInfo._id}`)
-      const wholeGoal = await axiosInstance.post("/toDos/create", {
-        goalId: updatedGoal.data._id,
-        toDos: toDos.map((todo) =>
-          Object.assign(todo, { goalId: updatedGoal.data._id })
-        ),
-      });
+      await axiosInstance.delete(`/toDos/deleteall/${dayInfo._id}`);
+      const wholeGoal = await axiosInstance.post(
+        "/toDos/create",
+        {
+          goalId: updatedGoal.data._id,
+          toDos: toDos.map((todo) =>
+            Object.assign(todo, { goalId: updatedGoal.data._id })
+          ),
+        },
+        { withCredentials: true }
+      );
       dispatch({
         type: "UPDATE",
         payload: wholeGoal.data,
@@ -117,7 +126,9 @@ export const EventPopUp = () => {
 
   const showDeleteHandler = async () => {
     if (window.confirm("Are you sure you want to delete this goal?")) {
-      await axiosInstance.delete(`/goals/delete/${dayInfo._id}`);
+      await axiosInstance.delete(`/goals/delete/${dayInfo._id}`, {
+        withCredentials: true,
+      });
       dispatch({
         type: "DELETE",
         _id: dayInfo._id,

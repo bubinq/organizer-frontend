@@ -9,7 +9,9 @@ export const EachGoal = () => {
 
   useEffect(() => {
     const loadGoals = async () => {
-      const response = await axiosInstance.get("/goals/user");
+      const response = await axiosInstance.get("/goals/user", {
+        withCredentials: true,
+      });
       dispatch({
         type: "READ",
         payload: response.data,

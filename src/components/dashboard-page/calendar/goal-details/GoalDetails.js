@@ -17,7 +17,9 @@ const GoalDetails = () => {
 
   useEffect(() => {
     const getDetails = async () => {
-      const goal = await axiosInstance.get(`/goals/details/${goalId}`);
+      const goal = await axiosInstance.get(`/goals/details/${goalId}`, {
+        withCredentials: true,
+      });
       dispatch({
         type: "READ",
         payload: goal.data,
@@ -66,7 +68,8 @@ const GoalDetails = () => {
     ev.preventDefault();
     if (ev.target.value === "Completed") {
       const completedToDos = await axiosInstance.get(
-        `/toDos/get/completed/${goalId}`
+        `/toDos/get/completed/${goalId}`,
+        { withCredentials: true }
       );
       dispatch({
         type: "READTODOS",
@@ -74,14 +77,17 @@ const GoalDetails = () => {
       });
     } else if (ev.target.value === "Incompleted") {
       const incompleted = await axiosInstance.get(
-        `/toDos/get/incompleted/${goalId}`
+        `/toDos/get/incompleted/${goalId}`,
+        { withCredentials: true }
       );
       dispatch({
         type: "READTODOS",
         payload: incompleted.data,
       });
     } else {
-      const goal = await axiosInstance.get(`/goals/details/${goalId}`);
+      const goal = await axiosInstance.get(`/goals/details/${goalId}`, {
+        withCredentials: true,
+      });
       dispatch({
         type: "READ",
         payload: goal.data,
