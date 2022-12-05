@@ -1,5 +1,5 @@
 import axios from "axios"
 
 export const axiosInstance = axios.create({
-    baseURL: "https://fabulous-jalebi-50034b.netlify.app/"
+    baseURL: "https://organizer-react-app.onrender.com/"
 })
