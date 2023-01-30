@@ -21,7 +21,7 @@ export const Calendar = () => {
   } = useContext(CalendarContext);
   const [month, setMonth] = useState(displayMonth());
 
-  const {size} = useWindowResize();
+  const size = useWindowResize();
   console.log(size);
 
   useEffect(() => {
