@@ -95,7 +95,9 @@ export const EventPopUp = () => {
         },
         { withCredentials: true }
       );
-      await axiosInstance.delete(`/toDos/deleteall/${dayInfo._id}`);
+      await axiosInstance.delete(`/toDos/deleteall/${dayInfo._id}`, {
+        withCredentials: true,
+      });
       const wholeGoal = await axiosInstance.post(
         "/toDos/create",
         {
