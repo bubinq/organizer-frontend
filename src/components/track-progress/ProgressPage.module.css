@@ -163,6 +163,9 @@ h5 {
     padding: 3px;
   }
   .sideBar {
+    position: fixed;
+    width: 5em;
+    height: 100vh;
     margin: 0;
     z-index: 1000;
     background-color: white;
@@ -194,6 +197,12 @@ h5 {
   }
   .progressDay {
     min-height: 64px;
+    border-top: none;
+    border-left: none;
+  }
+  .isToday {
+    width: 15px;
+    height: 15px;
   }
   .eventModal {
     left: 5%;

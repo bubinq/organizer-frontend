@@ -554,6 +554,7 @@ h5 {
   }
   .sideBar {
     position: fixed;
+    width: 5em;
     height: 100vh;
     margin: 0;
     z-index: 1000;
@@ -583,6 +584,13 @@ h5 {
   .weekRow {
     grid-template-columns: repeat(7, 3em);
   }
+  .weekRow:last-child() {
+    border-bottom: none;
+  }
+  .isToday {
+    height: 15px;
+    width: 15px;
+  }
   .eachDay {
     min-height: 64px;
     border-top: none;
@@ -590,9 +598,6 @@ h5 {
   }
   .eachDay:nth-child(7) {
     border-right: none;
-  }
-  .eachDay:nth-last-child(-n + 7) {
-    border-bottom: none;
   }
   .eventModal {
     left: 5%;
