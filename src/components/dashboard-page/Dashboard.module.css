@@ -407,7 +407,6 @@ h5 {
   width: 100%;
   top: -12%;
   border-radius: 50%;
-  z-index: 1000;
 }
 
 .innerText {
@@ -554,6 +553,8 @@ h5 {
     padding: 3px;
   }
   .sideBar {
+    position: fixed;
+    height: 100vh;
     margin: 0;
     z-index: 1000;
     background-color: white;
@@ -568,12 +569,12 @@ h5 {
     overflow: hidden;
   }
   .sideBar a {
-    font-size: 1rem;
+    font-size: 0.8em;
     letter-spacing: 0px;
     padding-left: 5px;
   }
   .sideBar h1 {
-    font-size: 1rem;
+    font-size: 0.8em;
     text-align: center;
   }
   .month {
@@ -584,6 +585,14 @@ h5 {
   }
   .eachDay {
     min-height: 64px;
+    border-top: none;
+    border-left: none;
+  }
+  .eachDay:nth-child(7) {
+    border-right: none;
+  }
+  .eachDay:nth-last-child(-n + 7) {
+    border-bottom: none;
   }
   .eventModal {
     left: 5%;
@@ -594,6 +603,12 @@ h5 {
     margin-top: 10px;
   }
   .innerText {
-    font-size: 0.8em;
+    font-size: 0.65em;
+  }
+  .noteHeader {
+    font-size: 0.65em;
+  }
+  h4 {
+    font-size: 0.65em;
   }
 }
