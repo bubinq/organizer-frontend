@@ -13,9 +13,7 @@ export const ProgressPage = () => {
   const { resetSelectedGoal } = useContext(GoalContext);
   const { monthIdx, showModal, setShowModal } = useContext(CalendarContext);
   const [month, setMonth] = useState(displayMonth());
-
-  const { size } = useWindowResize();
-  console.log(size.width);
+  const size = useWindowResize();
 
   useEffect(() => {
     setMonth(displayMonth(monthIdx));

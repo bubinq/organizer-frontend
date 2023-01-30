@@ -20,9 +20,7 @@ export const Calendar = () => {
     setShowModal,
   } = useContext(CalendarContext);
   const [month, setMonth] = useState(displayMonth());
-
   const size = useWindowResize();
-  console.log(size);
 
   useEffect(() => {
     setMonth(displayMonth(monthIdx));
