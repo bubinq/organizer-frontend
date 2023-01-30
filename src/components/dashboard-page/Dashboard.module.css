@@ -583,6 +583,7 @@ h5 {
   }
   .weekRow {
     grid-template-columns: repeat(7, 3em);
+    border-bottom: 1px solid #999;
   }
   .weekRow:last-child() {
     border-bottom: none;
@@ -591,10 +592,15 @@ h5 {
     height: 15px;
     width: 15px;
   }
+  .dayContent {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
   .eachDay {
     min-height: 64px;
     border-top: none;
     border-left: none;
+    border-bottom: none;
   }
   .eachDay:nth-child(7) {
     border-right: none;

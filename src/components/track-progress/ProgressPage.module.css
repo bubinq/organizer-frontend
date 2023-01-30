@@ -184,21 +184,33 @@ h5 {
   .middle {
     margin-top: 8px;
   }
+  .weekRow {
+    border-bottom: 1px solid #999;
+  }
+  .weekRow:last-child() {
+    border-bottom: none;
+  }
+  .progressDay:nth-child(7) {
+    border-right: none;
+  }
 
   .sideBar h1 {
-    font-size: 1rem;
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  .trackedGoal > span {
+    font-size: 0.8em;
     text-align: center;
   }
   .month {
     grid-template-rows: auto;
   }
-  .weekRow {
-    grid-template-columns: repeat(1, 320px);
-  }
   .progressDay {
     min-height: 64px;
     border-top: none;
     border-left: none;
+    border-bottom: none;
   }
   .isToday {
     width: 15px;

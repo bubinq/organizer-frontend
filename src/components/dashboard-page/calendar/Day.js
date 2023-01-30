@@ -73,7 +73,7 @@ export const Day = ({ day, rowIndex }) => {
         <h1>...Loading</h1>
       ) : (
         <div className={styles.eachDay} onClick={() => selectDayHandler(day)}>
-          <div>
+          <div className={styles.dayContent}>
             {rowIndex === 0 && (
               <h5 className={styles.firstRow}>{day.format("dd")}</h5>
             )}
