@@ -627,12 +627,13 @@ h5 {
     position: absolute;
     display: flex;
     align-items: center;
+    justify-content: center;
     bottom: 0%;
     line-height: 1.4;
     background-color: rgb(32, 33, 36);
     border-radius: 4px;
     transform: translate(-35%, 0%);
-    width: 15em;
+    min-width: 18em;
     height: 62px;
     z-index: 1000;
   }

@@ -29,7 +29,7 @@ export const Dashboard = () => {
   const resetPopUpTimer = () => {
     setTimeout(() => {
       setShowPopUp(false);
-    }, 1002000);
+    }, 12000);
   };
 
   const checkGoalIsExpired = () => {

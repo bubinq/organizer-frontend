@@ -123,8 +123,8 @@ h5 {
   }
   .chartWrapper > canvas {
     padding: 5px;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
   }
 
   .chartHeading {
@@ -243,7 +243,7 @@ h5 {
     left: 15%;
     top: -586%;
   }
-  .bubble {
+  .bubble > span {
     text-align: center;
     font-size: 0.65em;
   }
