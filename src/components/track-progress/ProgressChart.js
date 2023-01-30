@@ -24,7 +24,7 @@ export const ProgressChart = ({ day }) => {
     data: data,
     options: {
       cutout: 10,
-      radius: 15,
+      radius: 20,
     },
   };
   return (
