@@ -580,7 +580,7 @@ h5 {
     grid-template-rows: auto;
   }
   .weekRow {
-    grid-template-columns: repeat(1, 320px);
+    grid-template-columns: repeat(7, 3em);
   }
   .eachDay {
     min-height: 64px;
@@ -592,5 +592,8 @@ h5 {
   }
   .legendWrapper div {
     margin-top: 10px;
+  }
+  .innerText {
+    font-size: 0.8em;
   }
 }
