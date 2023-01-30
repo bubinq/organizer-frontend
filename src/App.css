@@ -33,3 +33,10 @@
   justify-content: center;
   background-color: rgb(53, 134, 255);
 }
+
+@media screen and (max-width: 574px){
+  .red, .orange, .yellow, .green, .purple, .blue {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

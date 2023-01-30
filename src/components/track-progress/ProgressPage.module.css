@@ -187,7 +187,7 @@ h5 {
   .weekRow {
     border-bottom: 1px solid #999;
   }
-  .weekRow:last-child() {
+  .weekRow:last-child {
     border-bottom: none;
   }
   .progressDay:nth-child(7) {
@@ -224,5 +224,9 @@ h5 {
   .figure {
     left: 15%;
     top: -586%;
+  }
+  .bubble {
+    text-align: center;
+    font-size: 0.65em;
   }
 }

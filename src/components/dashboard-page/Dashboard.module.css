@@ -585,7 +585,7 @@ h5 {
     grid-template-columns: repeat(7, 3em);
     border-bottom: 1px solid #999;
   }
-  .weekRow:last-child() {
+  .weekRow:last-child {
     border-bottom: none;
   }
   .isToday {
@@ -622,4 +622,5 @@ h5 {
   h4 {
     font-size: 0.65em;
   }
+  
 }
