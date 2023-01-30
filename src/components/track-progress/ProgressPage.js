@@ -7,12 +7,14 @@ import { displayMonth } from "../dashboard-page/calendar/Utils";
 import { MonthProgress } from "./MonthProgress";
 import { EachGoal } from "./EachGoal";
 import { GoalContext } from "../../contexts/GoalContext";
+import { useWindowResize } from "../../hooks/useWindowResize";
 
 export const ProgressPage = () => {
   const { resetSelectedGoal } = useContext(GoalContext);
-  const { monthIdx, showModal, setShowModal, checkWidth, setCheckWidth } =
-    useContext(CalendarContext);
+  const { monthIdx, showModal, setShowModal } = useContext(CalendarContext);
   const [month, setMonth] = useState(displayMonth());
+
+  const { size } = useWindowResize();
 
   useEffect(() => {
     setMonth(displayMonth(monthIdx));
@@ -28,7 +30,10 @@ export const ProgressPage = () => {
         <Header></Header>
         <Navigation></Navigation>
       </header>
-      <main className={styles.main} style={{justifyContent: showModal? "inherit" : "space-around"}}>
+      <main
+        className={styles.main}
+        style={{ justifyContent: showModal ? "inherit" : "space-around" }}
+      >
         {showModal && (
           <>
             <div
@@ -40,13 +45,7 @@ export const ProgressPage = () => {
             <EachGoal></EachGoal>
           </>
         )}
-        {checkWidth > 574 && (
-          <EachGoal
-            onChange={() => {
-              setCheckWidth(window.innerWidth);
-            }}
-          ></EachGoal>
-        )}
+        {size.width > 574 && <EachGoal></EachGoal>}
 
         <MonthProgress month={month}></MonthProgress>
       </main>

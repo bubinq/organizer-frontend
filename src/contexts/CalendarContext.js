@@ -8,7 +8,6 @@ export const CalendarProvider = ({ children }) => {
   const [dayTarget, setDayTarget] = useState(null);
   const [popModal, setPopModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [checkWidth, setCheckWidth] = useState(window.innerWidth);
 
   const popModalHandler = () => {
     setPopModal(!popModal);
@@ -25,8 +24,6 @@ export const CalendarProvider = ({ children }) => {
         popModalHandler,
         setShowModal,
         showModal,
-        setCheckWidth,
-        checkWidth,
       }}
     >
       {children}

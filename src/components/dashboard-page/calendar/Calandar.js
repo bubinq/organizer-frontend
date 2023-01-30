@@ -7,6 +7,7 @@ import { displayMonth } from "./Utils";
 import { SideBar } from "./SideBar";
 import { EventPopUp } from "./EventPopUp";
 import { Navigation } from "../../Navigation";
+import { useWindowResize } from "../../../hooks/useWindowResize";
 
 export const Calendar = () => {
   //  Manages currentMonth views
@@ -17,10 +18,10 @@ export const Calendar = () => {
     popModal,
     showModal,
     setShowModal,
-    setCheckWidth,
-    checkWidth,
   } = useContext(CalendarContext);
   const [month, setMonth] = useState(displayMonth());
+
+  const {size} = useWindowResize();
 
   useEffect(() => {
     setMonth(displayMonth(monthIdx));
@@ -52,12 +53,8 @@ export const Calendar = () => {
           </>
         )}
         <div className={styles.monthWrapper}>
-          {checkWidth > 574 && (
-            <SideBar
-              onChange={() => {
-                setCheckWidth(window.innerWidth);
-              }}
-            ></SideBar>
+          {size.width > 574 && (
+            <SideBar></SideBar>
           )}
           <Month month={month}></Month>
         </div>
