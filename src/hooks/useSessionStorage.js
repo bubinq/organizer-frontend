@@ -2,7 +2,10 @@ import { useState } from "react"
 
 export const useSessionStorage = (key, defValue) => {
     const [value, setValue] = useState(() => {
-        const searchedStorage = sessionStorage.getItem(key)
+        let searchedStorage = sessionStorage.getItem(key)
+        if (searchedStorage === undefined) {
+            searchedStorage = null;
+        }
 
         return searchedStorage? JSON.parse(searchedStorage) : defValue
         
