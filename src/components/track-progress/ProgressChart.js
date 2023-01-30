@@ -23,12 +23,15 @@ export const ProgressChart = ({ day }) => {
     type: "doughnut",
     data: data,
     options: {
-      cutout: 5,
-      radius: 10,
+      cutout: 10,
+      radius: 15,
     },
   };
   return (
     <div className={styles.chartWrapper}>
+      <div className={styles.chartHeading}>
+        <h5>{day.progress}%</h5>
+      </div>
       <Doughnut {...chartConfig}></Doughnut>
     </div>
   );
