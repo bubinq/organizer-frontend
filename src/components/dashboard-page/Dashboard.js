@@ -29,7 +29,7 @@ export const Dashboard = () => {
   const resetPopUpTimer = () => {
     setTimeout(() => {
       setShowPopUp(false);
-    }, 12000);
+    }, 1002000);
   };
 
   const checkGoalIsExpired = () => {
@@ -92,8 +92,8 @@ export const Dashboard = () => {
           <Calendar></Calendar>
           {showPopUp && (
             <motion.div
-              initial={{ opacity: 0, y: -100 }}
-              animate={{ opacity: 1, y: -30 }}
+              initial={{ opacity: 0, y: -70 }}
+              animate={{ opacity: 1, y: 30 }}
             >
               <DashboardPopUp
                 lastAddedGoal={lastAddedGoal}
