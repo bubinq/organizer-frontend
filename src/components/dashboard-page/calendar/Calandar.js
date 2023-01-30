@@ -22,6 +22,7 @@ export const Calendar = () => {
   const [month, setMonth] = useState(displayMonth());
 
   const {size} = useWindowResize();
+  console.log(size);
 
   useEffect(() => {
     setMonth(displayMonth(monthIdx));
@@ -53,7 +54,7 @@ export const Calendar = () => {
           </>
         )}
         <div className={styles.monthWrapper}>
-          {size.width > 574 && (
+          {size?.width > 574 && (
             <SideBar></SideBar>
           )}
           <Month month={month}></Month>

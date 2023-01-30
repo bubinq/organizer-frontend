@@ -15,6 +15,7 @@ export const ProgressPage = () => {
   const [month, setMonth] = useState(displayMonth());
 
   const { size } = useWindowResize();
+  console.log(size.width);
 
   useEffect(() => {
     setMonth(displayMonth(monthIdx));
@@ -45,7 +46,7 @@ export const ProgressPage = () => {
             <EachGoal></EachGoal>
           </>
         )}
-        {size.width > 574 && <EachGoal></EachGoal>}
+        {size?.width > 574 && <EachGoal></EachGoal>}
 
         <MonthProgress month={month}></MonthProgress>
       </main>
