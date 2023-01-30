@@ -622,5 +622,18 @@ h5 {
   h4 {
     font-size: 0.65em;
   }
+  .dashboardPopUp {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 30%;
+    line-height: 1.4;
+    background-color: rgb(32, 33, 36);
+    border-radius: 4px;
+    min-width: 4em;
+    max-width: 10em;
+    height: 60px;
+    z-index: 1000;
+  }
   
 }
