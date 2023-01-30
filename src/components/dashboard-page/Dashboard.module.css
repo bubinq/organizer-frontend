@@ -507,6 +507,7 @@ h5 {
   }
   .calendarWrapper {
     overflow: scroll;
+    height: auto;
   }
   .mainWrapper {
     margin-bottom: 20px;
@@ -626,14 +627,33 @@ h5 {
     position: absolute;
     display: flex;
     align-items: center;
-    bottom: 30%;
+    bottom: 0%;
     line-height: 1.4;
     background-color: rgb(32, 33, 36);
     border-radius: 4px;
-    min-width: 4em;
-    max-width: 10em;
-    height: 60px;
+    transform: translate(-35%, 0%);
+    width: 15em;
+    height: 62px;
     z-index: 1000;
+  }
+
+  .dashboardBtns {
+    border: none;
+    background-color: transparent;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: rgb(102, 122, 253);
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+
+  .dashboardBtnsWrapper {
+    display: flex;
+  }
+
+  .dashboardMsg {
+    text-align: center;
+    font-size: 0.8em;
   }
   
 }
