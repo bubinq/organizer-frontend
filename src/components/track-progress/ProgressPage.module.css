@@ -120,6 +120,11 @@ h5 {
     justify-content: center;
     align-items: center;
   }
+  .chartWrapper > canvas {
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+  }
   .headerWrapper {
     display: block;
   }
