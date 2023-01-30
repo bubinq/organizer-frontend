@@ -4,6 +4,7 @@ export const useWindowResize = () => {
   const [size, setSize] = useState({ width: undefined });
 
   useEffect(() => {
+    console.log(size);
     const resizeHandler = () => {
       setSize({ width: window.innerWidth });
     };
@@ -12,6 +13,7 @@ export const useWindowResize = () => {
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
+    //eslint-disable-next-line
   }, []);
 
   return size;
