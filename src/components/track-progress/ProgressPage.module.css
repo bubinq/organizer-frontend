@@ -115,6 +115,11 @@ h5 {
 }
 
 @media screen and (max-width: 574px) {
+  .chartWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .headerWrapper {
     display: block;
   }

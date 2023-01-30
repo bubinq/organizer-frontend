@@ -5,16 +5,17 @@ import styles from "./ProgressPage.module.css";
 Chart.register(ArcElement);
 
 export const ProgressChart = ({ day }) => {
+    console.log(day);
   const data = {
     labels: ["Complete", "Incomplete"],
     datasets: [
       {
         label: "Display Percentage",
         data: [day.progress, 100 - day.progress],
-        backgroundColor: ["rgb(51, 255, 141)", "rgb(255,255,255)"],
+        backgroundColor: ["#4AF193", "#000"],
         hoverOffset: 3,
-        borderRadius: 25,
-        spacing: 20,
+        borderRadius: 5,
+        spacing: 5,
       },
     ],
   };
@@ -22,6 +23,10 @@ export const ProgressChart = ({ day }) => {
   const chartConfig = {
     type: "doughnut",
     data: data,
+    options: {
+      cutout: 65,
+      radius: 50,
+    },
   };
   return (
     <div className={styles.chartWrapper}>
