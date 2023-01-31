@@ -35,6 +35,10 @@ export const UpdateGoal = ({
     setSelectedLabel(labelsArray[idx]);
   };
 
+  const checkClicked = (ev) => {
+    ev.currentTarget.disabled = !ev.currentTarget.disabled;
+  }
+
   if (dayInfo.toDos.length > 0) {
     let result = [];
     notes = dayInfo.toDos.forEach((element) => {
@@ -114,7 +118,7 @@ export const UpdateGoal = ({
             ))}
           </div>
 
-          <button type="submit" className={styles.submitBtn}>
+          <button onClick={checkClicked} type="submit" className={styles.submitBtn}>
             {isUpdating ? "Update" : "Save"}
           </button>
         </form>
