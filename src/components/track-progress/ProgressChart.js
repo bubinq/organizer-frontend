@@ -15,8 +15,8 @@ export const ProgressChart = ({ day }) => {
         data: [day.progress, 100 - day.progress],
         backgroundColor: ["#4AF193", "#fff"],
         hoverOffset: 3,
-        borderRadius: size.width > 574 ? 10 : 5,
-        spacing: size.width > 574 ? 10 : 5,
+        borderRadius: 5,
+        spacing: 5,
       },
     ],
   };
@@ -25,8 +25,8 @@ export const ProgressChart = ({ day }) => {
     type: "doughnut",
     data: data,
     options: {
-      cutout: size.width > 574 ? 30 : 10,
-      radius: size.width > 574 ? 60 : 20,
+      cutout: size.width > 574 ? 20 : 10,
+      radius: size.width > 574 ? 40 : 20,
     },
   };
   return (
