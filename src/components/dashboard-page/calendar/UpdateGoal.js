@@ -8,6 +8,7 @@ import Draggable from "react-draggable";
 import { labelsArray } from "./constants/labelConst";
 
 export const UpdateGoal = ({
+  reqFinished,
   goalHandler,
   isUpdating,
   setSelectedLabel,
@@ -34,10 +35,6 @@ export const UpdateGoal = ({
   const selectLabelHandler = (idx) => {
     setSelectedLabel(labelsArray[idx]);
   };
-
-  const checkClicked = (ev) => {
-    ev.currentTarget.disabled = !ev.currentTarget.disabled;
-  }
 
   if (dayInfo.toDos.length > 0) {
     let result = [];
@@ -118,7 +115,7 @@ export const UpdateGoal = ({
             ))}
           </div>
 
-          <button onClick={checkClicked} type="submit" className={styles.submitBtn}>
+          <button disabled={reqFinished} type="submit" className={styles.submitBtn}>
             {isUpdating ? "Update" : "Save"}
           </button>
         </form>

@@ -20,6 +20,7 @@ export const EventPopUp = () => {
 
   const [isUpdating, setIsUpdating] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState(labelsArray[0]);
+  const [hasReqFinished, setHasReqFinished] = useState(false);
 
   const GoalHandler = async (ev) => {
     ev.preventDefault();
@@ -60,6 +61,7 @@ export const EventPopUp = () => {
     }
 
     if (dayInfo.goal === "") {
+      setHasReqFinished(true);
       const newGoal = await axiosInstance.post(
         "/goals/create",
         {
@@ -87,6 +89,7 @@ export const EventPopUp = () => {
         _id: wholeGoal.data._id,
       });
     } else if (isUpdating) {
+      setHasReqFinished(true)
       const { toDos, ...data } = goalData;
       const updatedGoal = await axiosInstance.put(
         `/goals/update/${dayInfo._id}`,
@@ -115,6 +118,7 @@ export const EventPopUp = () => {
       });
     }
     popModalHandler();
+    setHasReqFinished(false);
   };
 
   const showUpdateHandler = () => {
@@ -150,6 +154,7 @@ export const EventPopUp = () => {
       )}
       {(!hasGoals || isUpdating) && (
         <UpdateGoal
+          reqFinished={hasReqFinished}
           goalHandler={GoalHandler}
           isUpdating={isUpdating}
           selectedLabel={selectedLabel}
