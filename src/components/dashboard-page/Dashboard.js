@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import dayjs from "dayjs";
 
 import { axiosInstance } from "../../utils";
+import { useWindowResize } from "../../hooks/useWindowResize";
 
 export const Dashboard = () => {
   //  Much like Calendar wraps the entire dashboard page
@@ -15,6 +16,7 @@ export const Dashboard = () => {
   const { goals, dispatch, displayDuration, isLoading, resetSelectedGoal } =
     useContext(GoalContext);
   const [showPopUp, setShowPopUp] = useState(false);
+  const size = useWindowResize();
 
   const lastAddedGoal = goals[goals.length - 1];
   const today = new Date(dayjs().format("MM DD YYYY")).valueOf();
@@ -92,8 +94,8 @@ export const Dashboard = () => {
           <Calendar></Calendar>
           {showPopUp && (
             <motion.div
-              initial={{ opacity: 0, y: -70 }}
-              animate={{ opacity: 1, y: 30 }}
+              initial={{ opacity: 0, y: size.width > 574? -100 : - 70 }}
+              animate={{ opacity: 1, y: size.width > 574? 0 : 30 }}
             >
               <DashboardPopUp
                 lastAddedGoal={lastAddedGoal}

@@ -1,10 +1,12 @@
 import { Chart, ArcElement } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { useWindowResize } from "../../hooks/useWindowResize";
 import styles from "./ProgressPage.module.css";
 
 Chart.register(ArcElement);
 
 export const ProgressChart = ({ day }) => {
+  const size = useWindowResize();
   const data = {
     labels: ["Complete", "Incomplete"],
     datasets: [
@@ -13,8 +15,8 @@ export const ProgressChart = ({ day }) => {
         data: [day.progress, 100 - day.progress],
         backgroundColor: ["#4AF193", "#fff"],
         hoverOffset: 3,
-        borderRadius: 5,
-        spacing: 5,
+        borderRadius: size.width > 574 ? 10 : 5,
+        spacing: size.width > 574 ? 10 : 5,
       },
     ],
   };
@@ -23,8 +25,8 @@ export const ProgressChart = ({ day }) => {
     type: "doughnut",
     data: data,
     options: {
-      cutout: 10,
-      radius: 20,
+      cutout: size.width > 574 ? 30 : 10,
+      radius: size.width > 574 ? 60 : 20,
     },
   };
   return (

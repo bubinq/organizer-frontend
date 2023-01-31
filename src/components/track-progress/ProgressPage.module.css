@@ -114,6 +114,25 @@ h5 {
   margin-top: 10px;
 }
 
+.chartWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.chartWrapper > canvas {
+  padding: 15px;
+  width: 85px;
+  height: 85px;
+}
+
+.chartHeading {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+
+}
+
 @media screen and (max-width: 574px) {
   .chartWrapper {
     display: flex;
