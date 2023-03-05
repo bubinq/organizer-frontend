@@ -21,12 +21,12 @@
 .month {
   display: grid;
   justify-content: flex-end;
-  grid-template-rows: repeat(6, 117px);
+  grid-template-rows: repeat(6, 8em);
 }
 
 .weekRow {
   display: grid;
-  grid-template-columns: repeat(7, 180px);
+  grid-template-columns: repeat(7, 9.5em);
 }
 
 .monthHeader {
@@ -303,6 +303,7 @@ h5 {
 .legendWrapper {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .legendWrapper div {
@@ -365,8 +366,9 @@ h5 {
 .goalSpan {
   cursor: pointer;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.1em;
   letter-spacing: 2px;
+  text-align: center;
   text-decoration: none;
 }
 .header {
@@ -406,7 +408,7 @@ h5 {
   display: flex;
   width: 100%;
   top: -12%;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 
 .innerText {
@@ -615,13 +617,14 @@ h5 {
     margin-top: 10px;
   }
   .innerText {
-    font-size: 0.65em;
+    font-size: 0.6em;
   }
   .noteHeader {
-    font-size: 0.65em;
+    font-size: 0.6em;
+    text-align: center;
   }
   h4 {
-    font-size: 0.65em;
+    font-size: 0.6em;
   }
   .dashboardPopUp {
     position: absolute;

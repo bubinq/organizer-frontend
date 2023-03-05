@@ -1,7 +1,6 @@
 .progressWrapper {
   overflow-x: hidden;
 }
-
 .progressDay {
   display: flex;
   position: relative;
@@ -207,21 +206,20 @@ h5 {
     z-index: 1000;
     background-color: white;
     margin-top: -115px;
-    padding-top: 90px;
+    padding-top: 69px;
   }
   .trackedGoal {
-    margin-top: 10px;
-    letter-spacing: 1px;
-    font-size: 1rem;
+    margin-top: 8px;
+    font-size: 0.9rem;
     text-align: center;
-    white-space: nowrap;
-    max-width: 100px;
+    max-height: 35px;
     overflow: hidden;
   }
   .middle {
     margin-top: 8px;
   }
   .weekRow {
+    grid-template-columns: repeat(7, 3em);
     border-bottom: 1px solid #999;
   }
   .weekRow:last-child {
