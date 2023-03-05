@@ -39,7 +39,7 @@ export const Calendar = () => {
         <Header></Header>
         <Navigation></Navigation>
       </header>
-      <main className={styles.mainWrapper} style={{ justifyContent: showModal? "inherit" : "space-evenly"}}>
+      <main className={styles.mainWrapper}>
         {showModal && (
           <>
             <div

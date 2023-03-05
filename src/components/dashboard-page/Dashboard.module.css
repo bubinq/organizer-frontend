@@ -488,6 +488,7 @@ h5 {
 .todayTasks {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .menuWrapper {
   display: none;

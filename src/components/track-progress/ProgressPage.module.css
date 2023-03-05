@@ -16,7 +16,7 @@ h5 {
 
 .main {
   display: flex;
-  justify-content: space-around;
+  align-items: baseline;
 }
 
 .notCurrentMonth {
