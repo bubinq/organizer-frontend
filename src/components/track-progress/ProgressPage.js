@@ -31,7 +31,6 @@ export const ProgressPage = () => {
       </header>
       <main
         className={styles.main}
-        style={{ justifyContent: showModal ? "inherit" : "space-around" }}
       >
         {showModal && (
           <>
